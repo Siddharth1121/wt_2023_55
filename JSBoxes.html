@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boxes in JavaScript</title>
+    <style>
+        body{
+            background-color: rgb(220, 213, 213);
+            display: inline-block;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .box {
+            align-items: center;
+            width: 150px;
+            height: 250px;
+            border: 5px solid #333;
+            margin: 30px;
+            padding: 30px;
+            text-align: center;
+            font-size: 18px;
+            float: left;
+        }
+
+        h1{
+            display: flex;
+            margin-left: 30vw;
+        }
+    </style>
+</head>
+<body>
+    <h1>Types of Boxes in JavaScript</h1>
+
+    <div class="box" style="background-color: rgb(199, 106, 90);" id="divBox">
+        <h2>div</h2>
+        <p>The &lt;div&gt; element is a generic container for flow content. It is often used for grouping and styling purposes.</p>
+    </div>
+
+    <div class="box" style="background-color: rgb(118, 190, 174);" id="alertBox">
+        <h2>alert</h2>
+        <p>The <code>alert()</code> function displays a simple dialog box with an alert message and an "OK" button.</p>
+    </div>
+
+    <div class="box" style="background-color: rgb(102, 109, 218);" id="promptBox">
+        <h2>prompt</h2>
+        <p>The <code>prompt()</code> function displays a dialog box with a message, an input field, and "OK" and "Cancel" buttons.</p>
+    </div>
+
+    <div class="box" style="background-color: rgb(214, 130, 202);" id="confirmBox">
+        <h2>confirm</h2>
+        <p>The <code>confirm()</code> function displays a dialog box with a message and "OK" and "Cancel" buttons, allowing the user to make a binary choice.</p>
+    </div>
+
+    <script>
+        
+        document.getElementById("divBox").addEventListener("click", function() {
+            alert("You clicked the 'div' box.");
+        });
+
+        document.getElementById("alertBox").addEventListener("click", function() {
+            alert("This is the 'alert' box.");
+        });
+
+        document.getElementById("promptBox").addEventListener("click", function() {
+            var userInput = prompt("Enter input:");
+            alert("You entered: " + userInput);
+        });
+
+        document.getElementById("confirmBox").addEventListener("click", function() {
+            var result = confirm("Are you sure?");
+            if (result) {
+                alert("You clicked confirm.");
+            } else {
+                alert("You clicked cancel.");
+            }
+        });
+    </script>
+</body>
+</html>

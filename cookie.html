@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookies Example</title>
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var user = getCookie("username");
+            if (user != "") {
+                alert("Welcome back, " + user + "! Your last visit was on " + getCookie("lastVisit"));
+            } else {
+                user = prompt("Please enter your name:");
+                if (user != "" && user != null) {
+                    setCookie("username", user, 30);
+                    setCookie("lastVisit", new Date().toLocaleDateString(), 30);
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="checkCookie()">
+
+<h2>Cookies Example</h2>
+<p>This example demonstrates the use of cookies to store a user's name and the date of their last visit.</p>
+
+</body>
+</html>

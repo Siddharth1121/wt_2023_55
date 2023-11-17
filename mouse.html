@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Coordinates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #canvas {
+            border: 1px solid #000;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Mouse Coordinates</h1>
+
+<p>Move your mouse over the canvas to see the coordinates:</p>
+
+<p id="coordinates"></p>
+
+<canvas id="canvas" width="500" height="500"></canvas>
+
+<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+canvas.addEventListener('mousemove', function(e) {
+    var rect = canvas.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    document.getElementById('coordinates').innerHTML = 'X: ' + x + ', Y: ' + y;
+});
+</script>
+
+</body>
+</html>

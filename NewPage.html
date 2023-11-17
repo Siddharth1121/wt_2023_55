@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Window Example</title>
+</head>
+<body>
+    <h1>Open New Window</h1>
+    <button onclick="openNewWindow()">Open New Window</button>
+
+    <script>
+        function openNewWindow() {
+            // Open a new browser window with specific features
+            var newWindow = window.open('', 'NewWindow', 'width=400,height=300');
+
+            // Check if the new window is already open
+            if (newWindow === null || newWindow.closed) {
+                newWindow = window.open('', 'NewWindow', 'width=400,height=300');
+            }
+
+            // Write content to the new window
+            newWindow.document.write('<h2>This is a new window.</h2>');
+            newWindow.document.write('<p>Sample text</p>');
+
+            // Close the document to ensure it's fully loaded
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>
